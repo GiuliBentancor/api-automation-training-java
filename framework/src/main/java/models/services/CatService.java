@@ -7,20 +7,20 @@ import models.responses.ResponseContainer;
 import java.util.List;
 import java.util.Map;
 
-public class BookingService extends ServiceBase {
-    public BookingService() {
-        super("/booking");
+public class CatService extends ServiceBase {
+    public CatService() {
+        super("/cats");
     }
 
-    public ResponseContainer<BookingResponse> addBooking(BookingModel model, Map<String, String> headers) {
-        return this.post(this.url, model, headers, BookingResponse.class);
+    public ResponseContainer<BookingResponse> addCats(CatModel model, Map<String, String> headers) {
+        return this.post(this.url, model, headers, CatResponse.class);
     }
 
-    public ResponseContainer<BookingModel> getBookingById(Long bookingId, Map<String, String> headers) {
-        return this.getSingleObject(this.url + "/" + bookingId, headers, BookingModel.class);
+    public ResponseContainer<BookingModel> getCatById(Long catId, Map<String, String> headers) {
+        return this.getSingleObject(this.url + "/" + catIdId, headers, CatModel.class);
     }
 
-    public ResponseContainer<List<BookingModel>> getBookings(Map<String, String> headers) {
+    public ResponseContainer<List<CatModel>> getCats(Map<String, String> headers) {
         return this.getListOfObjects(this.url, headers);
     }
 }
