@@ -1,7 +1,9 @@
 package models.services;
 import base.ServiceBase;
 import models.requests.BookingModel;
+import models.requests.CatModel;
 import models.responses.BookingResponse;
+import models.responses.CatResponse;
 import models.responses.ResponseContainer;
 
 import java.util.List;
@@ -12,12 +14,12 @@ public class CatService extends ServiceBase {
         super("/cats");
     }
 
-    public ResponseContainer<BookingResponse> addCats(CatModel model, Map<String, String> headers) {
+    public ResponseContainer<CatResponse> addCats(CatModel model, Map<String, String> headers) {
         return this.post(this.url, model, headers, CatResponse.class);
     }
 
-    public ResponseContainer<BookingModel> getCatById(Long catId, Map<String, String> headers) {
-        return this.getSingleObject(this.url + "/" + catIdId, headers, CatModel.class);
+    public ResponseContainer<CatModel> getCatById(Long catId, Map<String, String> headers) {
+        return this.getSingleObject(this.url + "/" + catId, headers, CatModel.class);
     }
 
     public ResponseContainer<List<CatModel>> getCats(Map<String, String> headers) {
