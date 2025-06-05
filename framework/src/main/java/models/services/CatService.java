@@ -25,4 +25,9 @@ public class CatService extends ServiceBase {
     public ResponseContainer<List<CatModel>> getCats(Map<String, String> headers) {
         return this.getListOfObjects(this.url, headers);
     }
+
+    public ResponseContainer<CatModel> updateCat(Long catId, CatModel model, Map<String, String> headers) {
+        String updateUrl = this.url + "/" + catId;
+        return this.put(updateUrl, model, headers, CatModel.class);
+    }
 }
