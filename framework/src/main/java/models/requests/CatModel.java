@@ -1,14 +1,16 @@
 package models.requests;
 
+import java.util.ArrayList;
+
 public class CatModel {
 
     private Integer id;
-    private String firstname;
+    private String name;
     private Integer age;
     private String breed;
     private String dateJoined;
     private Boolean vaccinated;
-    private String temperament;
+    private ArrayList<String> temperament = new ArrayList<>();
     private String staffInCharge;
     private boolean isAdopted;
     private Integer adopterId;
@@ -24,12 +26,12 @@ public class CatModel {
         this.id = id;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setName(String firstname) {
+        this.name = firstname;
     }
 
     public Integer getAge() {
@@ -64,13 +66,6 @@ public class CatModel {
         this.vaccinated = vaccinated;
     }
 
-    public String getTemperament() {
-        return temperament;
-    }
-
-    public void setTemperament(String temperament) {
-        this.temperament = temperament;
-    }
 
     public String getStaffInCharge() {
         return staffInCharge;
@@ -94,6 +89,14 @@ public class CatModel {
 
     public void setAdopterId(Integer adopterId) {
         this.adopterId = adopterId;
+    }
+
+    public ArrayList<String> getTemperament() {
+        return temperament;
+    }
+
+    public void setTemperament(ArrayList<String> temperament) {
+        this.temperament = temperament;
     }
 
     public static class BookingDates {
