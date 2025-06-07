@@ -1,8 +1,6 @@
 package services;
 
-import models.requests.BookingModel;
 import models.requests.CatModel;
-import models.services.BookingService;
 import models.services.CatService;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -14,7 +12,7 @@ public class BaseCatServiceTest {
 
     @BeforeEach
     public void setup() {
-        service.authenticate();
+        //service.authenticate();
     }
 
     protected CatModel defaultCat() {
@@ -26,7 +24,7 @@ public class BaseCatServiceTest {
         model.setVaccinated(true);
         model.setTemperament(new ArrayList<>(Arrays.asList("Calm")));
         model.setStaffInCharge("00000000-0000-0000-0000-000000000000");
-        model.setAdopted(true);
+        model.setAdopted(false);
         model.setAdopterId(1);
         return model;
     }

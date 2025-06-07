@@ -16,9 +16,8 @@ public class CatCreationTest extends BaseCatServiceTest {
         ResponseContainer<CatResponse> response = service.addCats(model, null);
         Assertions.assertEquals(201, response.getStatus());
         CatModel responseModel = response.getData().getCat();
-
         Assertions.assertNotNull(response.getData().getCatid());
-        Assertions.assertEquals(model.getFirstname(), responseModel.getFirstname());
+        Assertions.assertEquals(model.getName(), responseModel.getName());
         /*Assertions.assertEquals(model.getLastname(), responseModel.getLastname());
         Assertions.assertEquals(model.getDepositpaid(), responseModel.getDepositpaid());
         Assertions.assertEquals(model.getTotalprice(), responseModel.getTotalprice());

@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class CatService extends ServiceBase {
     public CatService() {
-        super("/cats");
+        super("/api/cats");
     }
 
     public ResponseContainer<CatResponse> addCats(CatModel model, Map<String, String> headers) {
