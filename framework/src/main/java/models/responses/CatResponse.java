@@ -4,18 +4,18 @@ import models.requests.BookingModel;
 import models.requests.CatModel;
 
 public class CatResponse {
-    private Long catid;
+    private Long id;
     private CatModel cat;
 
     public CatResponse() {
     }
 
-    public Long getCatid() {
-        return catid;
+    public Long getId() {
+        return id;
     }
 
-    public void setCatid(Long catid) {
-        this.catid = catid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public CatModel getCat() {
