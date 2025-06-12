@@ -17,15 +17,15 @@ public class BaseCatServiceTest {
 
     protected CatModel defaultCat() {
         CatModel model = new CatModel();
-        model.setName("Gato");
-        model.setAge(2);
-        model.setBreed("Siames");
-        model.setDateJoined("2025-06-06T21:27:48.910Z");
+        model.setName("Jhonny Walker");
+        model.setAge(3);
+        model.setBreed("Persian");
+        model.setDateJoined("2025-06-09T15:05:23.414Z");
         model.setVaccinated(true);
-        model.setTemperament(new ArrayList<>(Arrays.asList("Calm")));
+        model.setTemperament(Arrays.asList("Calm"));
         model.setStaffInCharge("00000000-0000-0000-0000-000000000000");
-        model.setAdopted(false);
-        model.setAdopterId(1);
+        model.setIsAdopted(false);
+        model.setAdopterId(1); //REPORTAR ESTO, si o si hay que pasarle un id mayor a 0, cosa que no tiene sentido
         return model;
     }
 }

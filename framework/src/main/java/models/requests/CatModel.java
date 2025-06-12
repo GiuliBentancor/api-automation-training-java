@@ -1,6 +1,7 @@
 package models.requests;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CatModel {
 
@@ -10,7 +11,7 @@ public class CatModel {
     private String breed;
     private String dateJoined;
     private Boolean vaccinated;
-    private ArrayList<String> temperament = new ArrayList<>();
+    private List<String> temperament;
     private String staffInCharge;
     private boolean isAdopted;
     private Integer adopterId;
@@ -75,11 +76,11 @@ public class CatModel {
         this.staffInCharge = staffInCharge;
     }
 
-    public boolean isAdopted() {
+    public boolean getIsAdopted() {
         return isAdopted;
     }
 
-    public void setAdopted(boolean adopted) {
+    public void setIsAdopted(boolean adopted) {
         isAdopted = adopted;
     }
 
@@ -91,33 +92,13 @@ public class CatModel {
         this.adopterId = adopterId;
     }
 
-    public ArrayList<String> getTemperament() {
+    public List<String> getTemperament() {
         return temperament;
     }
 
-    public void setTemperament(ArrayList<String> temperament) {
+    public void setTemperament(List<String> temperament) {
         this.temperament = temperament;
     }
 
-    public static class BookingDates {
-        private String checkin;
-        private String checkout;
-
-        public String getCheckin() {
-            return checkin;
-        }
-
-        public void setCheckin(String checkin) {
-            this.checkin = checkin;
-        }
-
-        public String getCheckout() {
-            return checkout;
-        }
-
-        public void setCheckout(String checkout) {
-            this.checkout = checkout;
-        }
-    }
 
 }

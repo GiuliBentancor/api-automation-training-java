@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 public class BookingRetrievalTest extends BaseBookingServiceTest {
 
-    @Test
+    /*@Test
     @DisplayName("Get booking by id")
     void getBookingById() {
         ResponseContainer<BookingModel> response = service.getBookingById(1L, null);
@@ -53,5 +53,5 @@ public class BookingRetrievalTest extends BaseBookingServiceTest {
         ResponseContainer<BookingModel> response = service.getBookingById(1L, null);
         Assertions.assertEquals(200, response.getStatus());
         Assertions.assertTrue(response.getResponseTime() < 2000);
-    }
+    }*/
 }

@@ -6,6 +6,7 @@ import models.responses.ResponseContainer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import utils.RequestResponseLogger;
 
 public class CatCreationTest extends BaseCatServiceTest {
 
@@ -13,10 +14,15 @@ public class CatCreationTest extends BaseCatServiceTest {
     @DisplayName("Create a new cat returns expected data")
     void createNewCat() {
         CatModel model = defaultCat();
+        RequestResponseLogger.logRequest(model);
+        
         ResponseContainer<CatResponse> response = service.addCats(model, null);
+        RequestResponseLogger.logResponse(response);
+        
         Assertions.assertEquals(201, response.getStatus());
-        CatModel responseModel = response.getData().getCat();
-        Assertions.assertNotNull(response.getData().getId());
+
+        CatResponse responseModel = response.getData();
+        Assertions.assertNotNull(response.getData());
         Assertions.assertEquals(model.getName(), responseModel.getName());
         /*Assertions.assertEquals(model.getLastname(), responseModel.getLastname());
         Assertions.assertEquals(model.getDepositpaid(), responseModel.getDepositpaid());
