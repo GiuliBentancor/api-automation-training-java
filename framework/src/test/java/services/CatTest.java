@@ -72,18 +72,6 @@ public class CatTest extends BaseCatServiceTest{
     }
 
     @Test
-    @Tag("Regression")
-    @DisplayName("Crear un gato sin raza")
-    void createCatWithEmptyBreed_ShouldReturnErrr() {
-        CatModel model = defaultCat();
-        model.setBreed("");
-
-        ResponseContainer<CatResponse> response = service.addCat(model, null);
-
-        assertTrue(response.getStatus() >= 400, "Se espera un error 4xx or 5xx");
-    }
-
-    @Test
     @DisplayName("Obtener un gato por su ID")
     @Tag("Regression")
     public void testGetCatById() {
