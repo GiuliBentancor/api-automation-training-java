@@ -24,20 +24,13 @@ public class CatCreationTest extends BaseCatServiceTest {
         CatResponse responseModel = response.getData();
         Assertions.assertNotNull(response.getData());
         Assertions.assertEquals(model.getName(), responseModel.getName());
-        /*Assertions.assertEquals(model.getLastname(), responseModel.getLastname());
-        Assertions.assertEquals(model.getDepositpaid(), responseModel.getDepositpaid());
-        Assertions.assertEquals(model.getTotalprice(), responseModel.getTotalprice());
-        Assertions.assertEquals(model.getAdditionalneeds(), responseModel.getAdditionalneeds());
-        Assertions.assertEquals(model.getBookingdates().getCheckin(), responseModel.getBookingdates().getCheckin());
-        Assertions.assertEquals(model.getBookingdates().getCheckout(), responseModel.getBookingdates().getCheckout());*/
+        Assertions.assertEquals(model.getAge(), responseModel.getAge());
+        Assertions.assertEquals(model.getBreed(), responseModel.getBreed());
+        Assertions.assertEquals(model.getDateJoined(), responseModel.getDateJoined());
+        Assertions.assertEquals(model.getVaccinated(), responseModel.getVaccinated());
+        Assertions.assertEquals(model.getTemperament(), responseModel.getTemperament());
+        Assertions.assertEquals(model.getStaffInCharge(), responseModel.getStaffInCharge());
+        Assertions.assertEquals(model.getIsAdopted(), responseModel.getIsAdopted());
+        Assertions.assertNull(responseModel.getAdopterId());
     }
-
-    /*@Test
-    @DisplayName("Create booking without firstname returns 400")
-    void createBookingWithoutFirstname() {
-        BookingModel model = defaultBooking();
-        model.setFirstname(null);
-        ResponseContainer<BookingResponse> response = service.addBooking(model, null);
-        Assertions.assertEquals(500, response.getStatus());
-    }*/
 }
