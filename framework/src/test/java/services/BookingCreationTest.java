@@ -3,14 +3,19 @@ package services;
 import models.requests.BookingModel;
 import models.responses.BookingResponse;
 import models.responses.ResponseContainer;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class BookingCreationTest extends BaseBookingServiceTest {
 
     @Test
     @DisplayName("Create a new booking returns expected data")
+    @Tag("Smoke")
     void createNewBooking() {
         BookingModel model = defaultBooking();
         ResponseContainer<BookingResponse> response = service.addBooking(model, null);
