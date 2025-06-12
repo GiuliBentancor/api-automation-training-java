@@ -1,0 +1,3 @@
+services\BaseBookingServiceTest.class
+services\BookingCreationTest.class
+services\BookingRetrievalTest.class

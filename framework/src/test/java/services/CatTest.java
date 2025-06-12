@@ -10,12 +10,14 @@ import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class CatTest extends BaseCatServiceTest{
 
     @Test
     @DisplayName("Crear un gato y probar si fue creado")
+    @Tag("Smoke")
     void testCreateCat() {
         CatModel model = defaultCat();
         ResponseContainer<CatResponse> response = service.addCat(model, null);
@@ -35,7 +37,43 @@ public class CatTest extends BaseCatServiceTest{
     }
 
     @Test
+    @DisplayName("Crear un gato sin nombre")
+    @Tag("Regression")
+    public void testCreateCatWithoutName(){
+        CatModel model = defaultCat();
+        model.setName(null);
+
+        ResponseContainer<CatResponse> response = service.addCat(model, null);
+        assertTrue(response.getStatus() >= 400, "Se espera un error 4xx or 5xx");
+    }
+
+    @Test
+    @Tag("Regression")
+    @DisplayName("Crear un gato con edad negativa")
+    void createCatWithNegativeAge() {
+        CatModel model = defaultCat();
+        model.setAge(-3);
+
+        ResponseContainer<CatResponse> response = service.addCat(model, null);
+
+        assertTrue(response.getStatus() >= 400, "Se espera un error 4xx or 5xx");
+    }
+
+    @Test
+    @Tag("Regression")
+    @DisplayName("Crear un gato sin raza")
+    void createCatWithEmptyBreed_ShouldReturnError() {
+        CatModel model = defaultCat();
+        model.setBreed("");
+
+        ResponseContainer<CatResponse> response = service.addCat(model, null);
+
+        assertTrue(response.getStatus() >= 400, "Se espera un error 4xx or 5xx");
+    }
+
+    @Test
     @DisplayName("Obtener un gato por su ID")
+    @Tag("Regression")
     public void testGetCatById() {
         ResponseContainer<CatModel> response = service.getCatById(6, null);
 
@@ -46,6 +84,7 @@ public class CatTest extends BaseCatServiceTest{
 
     @Test
     @DisplayName("Obtener una lista de todos los gatos")
+    @Tag("Regression")
     public void testGetAllCats() {
         ResponseContainer<List<CatModel>> response = service.getCats(null);
 
@@ -56,6 +95,7 @@ public class CatTest extends BaseCatServiceTest{
 
     @Test
     @DisplayName("Modificar un gato existente")
+    @Tag("Regression")
     public void testUpdateCat() {
 
         CatModel updatedCat = defaultCat();
@@ -71,6 +111,7 @@ public class CatTest extends BaseCatServiceTest{
 
     @Test
     @DisplayName("Modificar parcialmente un gato")
+    @Tag("Regression")
     public void testPatchCat() {
         CatModel partialUpdate = defaultCat();
         partialUpdate.setAge(5);
@@ -84,6 +125,7 @@ public class CatTest extends BaseCatServiceTest{
 
     @Test
     @DisplayName("Elimina un gato por su id")
+    @Tag("Smoke")
     public void testDeleteCat() {
         ResponseContainer<CatResponse> response = service.deleteCat(1, null);
 
