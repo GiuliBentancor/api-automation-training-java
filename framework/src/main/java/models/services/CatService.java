@@ -18,7 +18,7 @@ public class CatService extends ServiceBase {
         return this.post(this.url, model, headers, CatResponse.class);
     }
     //GET-ID
-    public ResponseContainer<CatModel> getCatById(Long catId, Map<String, String> headers) {
+    public ResponseContainer<CatModel> getCatById(Integer catId, Map<String, String> headers) {
         return this.getSingleObject(this.url + "/" + catId, headers, CatModel.class);
     }
     //GET
