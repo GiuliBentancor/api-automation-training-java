@@ -31,13 +31,13 @@ public class CatService extends ServiceBase {
         return this.put(updateUrl, model, headers, CatModel.class);
     }
     //DELETE-ID
-    public ResponseContainer<Void> deleteCatById(Long catId, Map<String, String> headers) {
+    public ResponseContainer<Void> deleteCatById(Integer catId, Map<String, String> headers) {
         String deleteUrl = this.url + "/" + catId;
         return this.delete(deleteUrl, null, headers, Void.class);
     }
 
     // PATCH-ID
-    public ResponseContainer<CatModel> patchCatById(Long catId, CatModel partialUpdate, Map<String, String> headers) {
+    public ResponseContainer<CatModel> patchCatById(Integer catId, CatModel partialUpdate, Map<String, String> headers) {
         String patchUrl = this.url + "/" + catId;
         return this.patch(patchUrl, partialUpdate, headers, CatModel.class);
     }
