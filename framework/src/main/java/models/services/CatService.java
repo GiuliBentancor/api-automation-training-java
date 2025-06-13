@@ -26,7 +26,7 @@ public class CatService extends ServiceBase {
         return this.getListOfObjects(this.url, headers);
     }
     //PUT-ID
-    public ResponseContainer<CatModel> updateCat(Long catId, CatModel model, Map<String, String> headers) {
+    public ResponseContainer<CatModel> updateCat(Integer catId, CatModel model, Map<String, String> headers) {
         String updateUrl = this.url + "/" + catId;
         return this.put(updateUrl, model, headers, CatModel.class);
     }
