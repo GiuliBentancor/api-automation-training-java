@@ -19,8 +19,7 @@ public class GetCatByIDTest extends BaseCatServiceTest {
     @DisplayName("getCatById returns expected data with an existing cat")
     void testGetCatByIdReturnsCorrectCat(){
         Integer catId = 66;
-        Map<String, String> headers = new HashMap<>();
-        ResponseContainer<CatModel> response = service.getCatById(catId, headers);
+        ResponseContainer<CatModel> response = service.getCatById(catId, null);
         Assertions.assertNotNull(response);
         Assertions.assertEquals(200, response.getStatus());
         Assertions.assertNotNull(response.getData());
