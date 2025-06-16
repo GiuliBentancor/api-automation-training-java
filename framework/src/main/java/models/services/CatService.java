@@ -33,6 +33,6 @@ public class CatService extends ServiceBase {
     }
 
     public ResponseContainer<CatResponse> deleteCat(Integer catId, Map<String, String> headers) {
-        return this.delete(this.url + "/" + catId, null, headers, CatResponse.class);
+        return this.delete(this.url + "/" + catId, "", headers, CatResponse.class);
     }
 }
