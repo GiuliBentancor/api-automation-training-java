@@ -8,12 +8,30 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class CatTest extends BaseCatServiceTest{
+
+    private Integer hookCatId;
+
+    @BeforeEach
+    public void setup() {
+        CatModel cat = defaultCat();
+        ResponseContainer<CatResponse> response = service.addCat(cat, null);
+        hookCatId = response.getData().getId();
+    }
+
+    @AfterEach
+    public void limpiar() {
+        if (hookCatId != null) {
+            service.deleteCat(hookCatId, null);
+        }
+    }
 
     @Test
     @DisplayName("Crear un gato y probar si fue creado")
@@ -34,6 +52,8 @@ public class CatTest extends BaseCatServiceTest{
         Assertions.assertEquals(model.getStaffInCharge(), responseModel.getStaffInCharge());
         Assertions.assertEquals(model.getIsAdopted(), responseModel.getIsAdopted());
         //Assertions.assertEquals(model.getAdopterId(), responseModel.getAdopterId());
+
+        hookCatId = response.getData().getId();
     }
 
     @Test
@@ -91,6 +111,7 @@ public class CatTest extends BaseCatServiceTest{
 
         assertEquals(200, response.getStatus());
         assertNotNull(response.getData());
+        hookCatId = response.getData().getId();
     }
 
     @Test
@@ -126,6 +147,8 @@ public class CatTest extends BaseCatServiceTest{
         assertEquals(200, response.getStatus());
         assertNotNull(response.getData());
         assertEquals("Tom", response.getData().getName());
+
+        hookCatId = response.getData().getId();
     }
 
     @Test
@@ -158,6 +181,8 @@ public class CatTest extends BaseCatServiceTest{
         assertNotNull(response.getData());
         assertEquals("0000-0000-0001", response.getData().getStaffInCharge());
         assertEquals(5, response.getData().getAdopterId());
+
+        hookCatId = response.getData().getId();
     }
 
     @Test
