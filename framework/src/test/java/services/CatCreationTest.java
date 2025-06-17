@@ -7,10 +7,21 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
 import utils.RequestResponseLogger;
 
 @Tag("CatTests")
 public class CatCreationTest extends BaseCatServiceTest {
+
+    private Integer createdCatId;
+
+    @AfterEach
+    void cleanupCreatedCat() {
+        if (createdCatId != null) {
+            service.deleteCatById(createdCatId, null);
+            createdCatId = null;
+        }
+    }
 
     @Test
     @Tag("Smoke")
@@ -23,6 +34,7 @@ public class CatCreationTest extends BaseCatServiceTest {
         
         Assertions.assertEquals(201, response.getStatus());
 
+        createdCatId = response.getData().getId();
         CatResponse responseModel = response.getData();
         Assertions.assertNotNull(response.getData());
         Assertions.assertEquals(model.getName(), responseModel.getName());
