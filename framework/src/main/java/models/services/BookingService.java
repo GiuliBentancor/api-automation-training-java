@@ -16,9 +16,9 @@ public class BookingService extends ServiceBase {
         return this.post(this.url, model, headers, BookingResponse.class);
     }
 
-    public ResponseContainer<BookingModel> getBookingById(Long bookingId, Map<String, String> headers) {
+    /*public ResponseContainer<BookingModel> getBookingById(Long bookingId, Map<String, String> headers) {
         return this.getSingleObject(this.url + "/" + bookingId, headers, BookingModel.class);
-    }
+    }*/
 
     public ResponseContainer<List<BookingModel>> getBookings(Map<String, String> headers) {
         return this.getListOfObjects(this.url, headers);

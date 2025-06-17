@@ -78,7 +78,10 @@ public class ServiceBase {
         if (status < 200 || status >= 300) {
             return new ResponseContainer<>(null, status, headers, responseTime);
         }
-
+        // Special handling for Void response type
+        if (responseClass == Void.class) {
+            return new ResponseContainer<>(null, status, headers, responseTime);
+        }
         T data = response.body().as(responseClass);
         return new ResponseContainer<>(data, status, headers, responseTime);
     }
