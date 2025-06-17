@@ -75,7 +75,12 @@ public class ServiceBase {
         int status = response.statusCode();
         String headers = response.headers().toString();
 
-        if (status < 200 || status >= 300) {
+        if (status < 200 || status >= 300 || response.getBody().asString().isEmpty() || response.getContentType() == null) {
+            return new ResponseContainer<>(null, status, headers, responseTime);
+        }
+
+        // Special handling for Void response type
+        if (responseClass == Void.class) {
             return new ResponseContainer<>(null, status, headers, responseTime);
         }
 
