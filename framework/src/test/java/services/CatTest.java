@@ -52,6 +52,8 @@ public class CatTest extends BaseCatServiceTest{
         Assertions.assertEquals(model.getStaffInCharge(), responseModel.getStaffInCharge());
         Assertions.assertEquals(model.getIsAdopted(), responseModel.getIsAdopted());
         //Assertions.assertEquals(model.getAdopterId(), responseModel.getAdopterId());
+        assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
+
 
         hookCatId = response.getData().getId();
     }
@@ -65,6 +67,7 @@ public class CatTest extends BaseCatServiceTest{
 
         ResponseContainer<CatResponse> response = service.addCat(model, null);
         assertTrue(response.getStatus() < 400);
+        assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
     }
 
     @Test
@@ -77,6 +80,7 @@ public class CatTest extends BaseCatServiceTest{
         ResponseContainer<CatResponse> response = service.addCat(model, null);
 
         assertTrue(response.getStatus() < 400);
+        assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
     }
 
     @Test
@@ -89,6 +93,7 @@ public class CatTest extends BaseCatServiceTest{
         ResponseContainer<CatResponse> response = service.addCat(model, null);
 
         assertTrue(response.getStatus() < 400);
+        assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
     }
 
     @Test
@@ -101,6 +106,7 @@ public class CatTest extends BaseCatServiceTest{
         ResponseContainer<CatResponse> response = service.addCat(model, null);
 
         assertTrue(response.getStatus() < 400);
+        assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
     }
 
     @Test
@@ -111,6 +117,8 @@ public class CatTest extends BaseCatServiceTest{
 
         assertEquals(200, response.getStatus());
         assertNotNull(response.getData());
+        assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
+
         hookCatId = response.getData().getId();
     }
 
@@ -120,6 +128,7 @@ public class CatTest extends BaseCatServiceTest{
     void getCatByInvalidId() {
         ResponseContainer<CatModel> response = service.getCatById(-10, null);
         assertTrue(response.getStatus() < 400);
+        assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
     }
 
     @Test
@@ -131,6 +140,7 @@ public class CatTest extends BaseCatServiceTest{
         assertEquals(200, response.getStatus());
         assertNotNull(response.getData());
         assertTrue(response.getData().size() > 0);
+        assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
     }
 
     @Test
@@ -147,6 +157,7 @@ public class CatTest extends BaseCatServiceTest{
         assertEquals(200, response.getStatus());
         assertNotNull(response.getData());
         assertEquals("Tom", response.getData().getName());
+        assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
 
         hookCatId = response.getData().getId();
     }
@@ -165,6 +176,7 @@ public class CatTest extends BaseCatServiceTest{
         assertEquals(200, response.getStatus());
         assertNotNull(response.getData());
         assertEquals("Tom", response.getData().getName());
+        assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
     }
 
     @Test
@@ -181,6 +193,7 @@ public class CatTest extends BaseCatServiceTest{
         assertNotNull(response.getData());
         assertEquals("0000-0000-0001", response.getData().getStaffInCharge());
         assertEquals(5, response.getData().getAdopterId());
+        assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
 
         hookCatId = response.getData().getId();
     }
@@ -199,6 +212,7 @@ public class CatTest extends BaseCatServiceTest{
         assertNotNull(response.getData());
         assertEquals("Gaston", response.getData().getName());
         assertEquals(5, response.getData().getAge());
+        assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
     }
 
     @Test
@@ -208,6 +222,7 @@ public class CatTest extends BaseCatServiceTest{
         ResponseContainer<CatResponse> response = service.deleteCat(70, null);
 
         assertTrue(response.getStatus() < 400);
+        assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
     }
 
     @Test
@@ -216,5 +231,6 @@ public class CatTest extends BaseCatServiceTest{
     void testDeleteInvalidCat() {
         ResponseContainer<CatResponse> response = service.deleteCat(-3, null);
         assertTrue(response.getStatus() >= 400);
-    }
+        assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
+    }//Hacer git add., git commit -m "Milestone 6", git push origin Milestone_6
 }
