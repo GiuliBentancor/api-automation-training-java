@@ -18,20 +18,20 @@ public class AdopterCreationTest extends BaseAdopterServiceTest {
     @Tag("Smoke")
     @DisplayName("Create a new adopter returns expected data")
     void createNewAdopter() {
-        AdopterModel model = defaultAdopter();
-        RequestResponseLogger.logRequest(model);
-        ResponseContainer<AdopterResponse> response = service.addAdopter(model, null);
+        AdopterModel modelo = defaultAdopter();
+        RequestResponseLogger.logRequest(modelo);
+        ResponseContainer<AdopterResponse> response = service.addAdopter(modelo, null);
         RequestResponseLogger.logResponse(response);
 
         Assertions.assertEquals(201, response.getStatus());
 
         createdAdopterId = response.getData().getId();
         Assertions.assertNotNull(response.getData());
-        Assertions.assertEquals(model.getName(), response.getData().getName());
-        Assertions.assertEquals(model.getLastName(), response.getData().getLastName());
-        Assertions.assertEquals(model.getDateOfBirth(), response.getData().getDateOfBirth());
-        Assertions.assertEquals(model.getPhone(), response.getData().getPhone());
-        Assertions.assertEquals(model.getAddress(), response.getData().getAddress());
+        Assertions.assertEquals(modelo.getName(), response.getData().getName());
+        Assertions.assertEquals(modelo.getLastName(), response.getData().getLastName());
+        Assertions.assertEquals(modelo.getDateOfBirth(), response.getData().getDateOfBirth());
+        Assertions.assertEquals(modelo.getPhone(), response.getData().getPhone());
+        Assertions.assertEquals(modelo.getAddress(), response.getData().getAddress());
     }
 }
 }
