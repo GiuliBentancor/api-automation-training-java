@@ -14,9 +14,8 @@ public class BaseUserServiceTest {
 
     protected UserModel defaultUser() {
         UserModel model = new UserModel();
-        model.setUsername("user1");
-        model.setCreatedAt("2024-01-01");
-        model.setPassword("password123");
+        model.setUsername("usuario");
+        model.setPassword("contra123");
         return model;
     }
 }
