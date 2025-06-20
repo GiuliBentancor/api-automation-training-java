@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
 import utils.RequestResponseLogger;
 
 @Tag("AdopterTests")
@@ -28,8 +29,9 @@ public class AdopterCreationTest extends BaseAdopterServiceTest {
         Assertions.assertNotNull(response.getData());
         Assertions.assertEquals(model.getName(), response.getData().getName());
         Assertions.assertEquals(model.getLastName(), response.getData().getLastName());
-        Assertions.assertEquals(model.getAge(), response.getData().getAge());
-        Assertions.assertEquals(model.getDateJoined(), response.getData().getDateJoined());
-        Assertions.assertEquals(model.getRole(), response.getData().getRole());
+        Assertions.assertEquals(model.getDateOfBirth(), response.getData().getDateOfBirth());
+        Assertions.assertEquals(model.getPhone(), response.getData().getPhone());
+        Assertions.assertEquals(model.getAddress(), response.getData().getAddress());
     }
+}
 }

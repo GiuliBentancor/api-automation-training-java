@@ -4,7 +4,7 @@ public class AdopterModel {
     private Integer id;
     private String name;
     private String lastName;
-    private Integer dateOfBirth;
+    private String dateOfBirth;
     private String phone;
     private String address;
 
@@ -32,11 +32,8 @@ public class AdopterModel {
         this.lastName = lastName;
     }
 
-    public Integer getDateOfBirth() {
-        return dateOfBirth;
-    }
 
-    public void setDateOfBirth(Integer dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -54,5 +51,9 @@ public class AdopterModel {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 }

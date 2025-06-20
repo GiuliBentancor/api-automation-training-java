@@ -16,9 +16,9 @@ public class BaseAdopterServiceTest {
         AdopterModel model = new AdopterModel();
         model.setName("Carlos");
         model.setLastName("Roberto");
-        model.setAge(30);
-        model.setDateJoined("2024-01-01");
-        model.setRole("adoptador");
+        model.setDateOfBirth("2000-06-20T23:39:22.868Z");
+        model.setPhone("87654321");
+        model.setAddress("string");
         return model;
     }
 }
