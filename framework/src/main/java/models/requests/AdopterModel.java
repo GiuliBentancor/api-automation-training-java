@@ -4,9 +4,9 @@ public class AdopterModel {
     private Integer id;
     private String name;
     private String lastName;
-    private Integer age;
-    private String dateJoined;
-    private String role;
+    private Integer dateOfBirth;
+    private String phone;
+    private String address;
 
     public Integer getId() {
         return id;
@@ -32,27 +32,27 @@ public class AdopterModel {
         this.lastName = lastName;
     }
 
-    public Integer getAge() {
-        return age;
+    public Integer getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setDateOfBirth(Integer dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
-    public String getDateJoined() {
-        return dateJoined;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setDateJoined(String dateJoined) {
-        this.dateJoined = dateJoined;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getRole() {
-        return role;
+    public String getAddress() {
+        return address;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
