@@ -25,15 +25,7 @@ public class AdopterService extends ServiceBase {
         return this.getListOfObjects(this.url, headers);
     }
 
-    public ResponseContainer<AdopterModel> updateAdopter(Integer adopterId, AdopterModel model, Map<String, String> headers) {
-        return this.put(this.url + "/" + adopterId, model, headers, AdopterModel.class);
-    }
-
     public ResponseContainer<Void> deleteAdopterById(Integer adopterId, Map<String, String> headers) {
         return this.delete(this.url + "/" + adopterId, "", headers, Void.class);
-    }
-
-    public ResponseContainer<AdopterModel> patchAdopterById(Integer adopterId, AdopterModel partialUpdate, Map<String, String> headers) {
-        return this.patch(this.url + "/" + adopterId, partialUpdate, headers, AdopterModel.class);
     }
 }
