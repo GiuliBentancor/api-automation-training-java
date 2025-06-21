@@ -34,4 +34,3 @@ public class AdopterCreationTest extends BaseAdopterServiceTest {
         Assertions.assertEquals(modelo.getAddress(), response.getData().getAddress());
     }
 }
-}
