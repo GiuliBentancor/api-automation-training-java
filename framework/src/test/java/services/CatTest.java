@@ -18,11 +18,12 @@ import org.junit.jupiter.api.Test;
 public class CatTest extends BaseCatServiceTest{
 
     private Integer hookCatId;
+    ResponseContainer<CatResponse> response;
 
     @BeforeEach
     public void setup() {
         CatModel cat = defaultCat();
-        ResponseContainer<CatResponse> response = service.addCat(cat, null);
+        response = service.addCat(cat, null);
         hookCatId = response.getData().getId();
     }
 
@@ -38,8 +39,7 @@ public class CatTest extends BaseCatServiceTest{
     @Tag("Smoke")
     void testCreateCat() {
         CatModel model = defaultCat();
-        ResponseContainer<CatResponse> response = service.addCat(model, null);
-        Assertions.assertEquals(201, response.getStatus());
+        assertEquals(201, response.getStatus());
         CatResponse responseModel = response.getData();
 
         Assertions.assertNotNull(response.getData());
@@ -118,8 +118,6 @@ public class CatTest extends BaseCatServiceTest{
         assertEquals(200, response.getStatus());
         assertNotNull(response.getData());
         assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
-
-        hookCatId = response.getData().getId();
     }
 
     @Test
@@ -158,8 +156,6 @@ public class CatTest extends BaseCatServiceTest{
         assertNotNull(response.getData());
         assertEquals("Tom", response.getData().getName());
         assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
-
-        hookCatId = response.getData().getId();
     }
 
     @Test
@@ -194,8 +190,6 @@ public class CatTest extends BaseCatServiceTest{
         assertEquals("0000-0000-0001", response.getData().getStaffInCharge());
         assertEquals(5, response.getData().getAdopterId());
         assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
-
-        hookCatId = response.getData().getId();
     }
 
     @Test
@@ -232,5 +226,5 @@ public class CatTest extends BaseCatServiceTest{
         ResponseContainer<CatResponse> response = service.deleteCat(-3, null);
         assertTrue(response.getStatus() >= 400);
         assertTrue(response.getResponseTime() < 1000, "El tiempo de respuesta fue excedido");
-    }//Hacer git add., git commit -m "Milestone 6", git push origin Milestone_6
+    }
 }
