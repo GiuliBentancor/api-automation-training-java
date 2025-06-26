@@ -25,7 +25,7 @@ public class BaseCatServiceTest {
         model.setTemperament(Arrays.asList("Calm"));
         model.setStaffInCharge("00000000-0000-0000-0000-000000000000");
         model.setIsAdopted(false);
-        model.setAdopterId(1); //REPORTAR ESTO, si o si hay que pasarle un id mayor a 0, cosa que no tiene sentido
+        model.setAdopterId(1);
         return model;
     }
 }
